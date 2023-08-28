@@ -12,10 +12,10 @@ return(
 <nav className="Nav" >
   <div >
    
-  <a href="/">
-    <button className="NavButton   cursor: not-allowed">Home</button>
+  <a href="/Foosball_App">
+    <button className="NavButton">Home</button>
     </a>
-    <a href="/players">
+    <a href="/Foosball_App/#/players">
     <button className="NavButton">Players</button>
     </a>
   </div>
