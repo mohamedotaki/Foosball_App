@@ -1,3 +1,24 @@
+.Nav{
+  background-color: #dedede; /* Green */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.NavButton {
+    background-color: #ffffff00; /* Green */
+    border: none;
+    color: rgb(17, 17, 17);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 50px;
+    cursor: not-allowed;
+
+}
+
 .App {
   text-align: center;
 }
