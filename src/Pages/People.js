@@ -1,8 +1,11 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState } from "react";
+import ListTeams from '../Components/ListTeams';
+import Button  from "../Components/Button";
 
-let players = [
+const players = [
+    {Name:'Niail', Selected: false},
     {Name:'Moh Shiha', Selected: false},
     {Name:'Moh Otaki', Selected: false},
     {Name:'Moh Che', Selected: false},
@@ -11,72 +14,71 @@ let players = [
     {Name:'BBK', Selected: false},
     {Name:'Haisam', Selected: false},
     {Name:'Jamil', Selected: false},
-    {Name:'Mohanad', Selected: false},
-    {Name:'Niail', Selected: false}];  
-//let randomTeams =[];
+    {Name:'Mohanad', Selected: false}];  
+let buttonName = "Create Teams";
 
 export default function People() {
+    const [selectedPlayers, setPlayers] = useState(players);
+    const [updatelist, setUpdateList] = useState(0);
 
-    const [selectedPlayers, setSelectedPlayers] = useState(players);
-    //const [randomisedPlayers, setRandomisedPlayers] = useState();
 
-    function handlechange(selected) {  
-        const UpdatedPlayers = selectedPlayers.map((player,index) => {
-            if(player.Name === selected)
-            {
-           return{
-            ...player,
-            Selected: player.Selected? false:true,
-                 };
-            }
-            else
-            {
-                return player;
-            }
-        });
-        setSelectedPlayers(UpdatedPlayers);
-        }
+    function isOdd(n) {
+        return Math.abs(n % 2) == 1;
+     }
+
+  
     function randomTeams(){
         let finalPlayers = [];
         let index=0;
         selectedPlayers.map(player => {
             if(player.Selected){
-                finalPlayers[index] = player.Name;
+                finalPlayers[index] = player;
                 index++;
-            }
-            return null;
+            }else return null;
         });
-        const shuffled = finalPlayers.sort(() => Math.random() - 0.5)
-        let arrLength = finalPlayers.length;
-        const randomNumber = Math.floor(Math.random() * finalPlayers.length);
-        console.log(shuffled);
+
+        if(finalPlayers.length >3)
+        {
+        if(isOdd(finalPlayers.length))
+        {
+            finalPlayers.push({Name:'**Jasim**',Selected: true});
+        }
+
+        const shuffled = finalPlayers.sort(() => Math.random() - 0.5);
+        setPlayers(shuffled);
+        setUpdateList(1);
+        buttonName = "Reset";
+        }
+
+
     }
+
+    function teamButton(){
+        if(updatelist != 1){
+            randomTeams();
+        }
+        else if (updatelist == 1){
+            buttonName = "Create Teams"
+            setPlayers(players);
+            setUpdateList(2);
+            console.log("reset but")
+        }
+        else {
+            setUpdateList(0);
+        }
+    }
+        const dataFromChild = (value) =>{setPlayers(value)}
+    
     return ( 
         <>
         <div>
-           <ul className="list-group">
-                {
-                selectedPlayers.map((Player) => 
-                    <li 
-                    className= { Player.Selected ? 'list-group-item active':'list-group-item'}
-                    key={Player.Name}
-                    onClick={() => handlechange(Player.Name)}
-                    >
-                        {Player.Name}
-                    </li>)
-                }
-            </ul>    
-            <button
-            onClick = {() => randomTeams()}
-            >Pick Teams</button>
+            <ListTeams players ={selectedPlayers} updatelist = {updatelist} listType = {"list-group"} callback={dataFromChild}/>
+            <Button 
+            name = {buttonName}
+            fun={()=> teamButton()}/>
                 
         </div>
-        </> 
+        </>  
     );
 
 };
-
-
-
-
- 
