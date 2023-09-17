@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Foosball_App/static/css/main.5247c86f.css",
-    "main.js": "/Foosball_App/static/js/main.e771695a.js",
+    "main.css": "/Foosball_App/static/css/main.a2b95b91.css",
+    "main.js": "/Foosball_App/static/js/main.d6a60413.js",
     "static/js/787.0591d81b.chunk.js": "/Foosball_App/static/js/787.0591d81b.chunk.js",
     "index.html": "/Foosball_App/index.html",
-    "main.5247c86f.css.map": "/Foosball_App/static/css/main.5247c86f.css.map",
-    "main.e771695a.js.map": "/Foosball_App/static/js/main.e771695a.js.map",
+    "main.a2b95b91.css.map": "/Foosball_App/static/css/main.a2b95b91.css.map",
+    "main.d6a60413.js.map": "/Foosball_App/static/js/main.d6a60413.js.map",
     "787.0591d81b.chunk.js.map": "/Foosball_App/static/js/787.0591d81b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5247c86f.css",
-    "static/js/main.e771695a.js"
+    "static/css/main.a2b95b91.css",
+    "static/js/main.d6a60413.js"
   ]
 }
