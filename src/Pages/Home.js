@@ -1,15 +1,17 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState } from "react";
-import ListTeams from '../Components/ListTeams';
+import ManagePlayers from "./ManagePlayers";
 
 
 export default function Home() {
 
 
-return
+return(
+""
 
-};
+)
+
+}
 
 
 

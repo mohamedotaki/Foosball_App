@@ -1,21 +1,19 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.css';
-import '../App.css';
+import "bootstrap/dist/css/bootstrap.css";
+import "../App.css";
 
-
-
-export default function Button({name, fun}){
-
+const Button = (props) => {
   return (
-    <div className="d-grid gap-2 col-6 mx-auto">
-  <button
-  className="btn btn-primary"  type="button"
-  onClick={fun}
-  >{name}
-  </button>
-  </div>
+    <button
+      className={props.className}
+      type={props.type || "button"}
+      onClick={props.onClick}
+      hidden={props.hidden ? "hidden" : ""}
+    >
+      {props.icon}
+      {props.buttonName}
+    </button>
   );
+};
 
-
-
-}
+export default Button;
